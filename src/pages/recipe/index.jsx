@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import useSWR from 'swr';
 import ripples from '../../assets/Images/ripples.svg'
 import { Container } from '@mui/material';
+import Navbar from '../../component/navbar/index'
 
 
 const getRecipe = (...args) => {
@@ -16,16 +17,17 @@ const getRecipe = (...args) => {
 
 const Recipe = () => {
 const {id} = useParams();
-const {data, isLoading} = useSWR(`https://api.spoonacular.com/recipes/${id}/information`, getRecipe)
+const {data, isLoading} = useSWR(`${process.env.REACT_APP_RECIPE_API_URL}/recipes/${id}`, getRecipe)
 // console.log(data, isLoading);
 
   return (
     <>
-    {isLoading ? <img src={ripples} /> :(
+    <Navbar />
+    {isLoading ? <img src={ripples} alt='Loading'/> :(
       <Container>
         <h1>{data.title}</h1>
         <div dangerouslySetInnerHTML={{__html:data.summary}} />
-        <img src={data.image} />
+        <img src={data.image} alt={data.title} />
       </Container>
     )}
     </>
