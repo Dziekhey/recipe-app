@@ -54,7 +54,7 @@ useEffect(getRecipes, [keyword]);
                             <CardMedia
                                 component="img"
                                 height="140"
-                                image={`${process.env.REACT_APP_RECIPE_API_URL}/${recipe.image}`}
+                                image={`${process.env.REACT_APP_RECIPE_API_URL}/images/${recipe.image}`}
                                 alt={recipe.title}
                             />
                             <CardContent sx={{height:'100%'}}>

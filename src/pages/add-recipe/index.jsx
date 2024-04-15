@@ -32,9 +32,13 @@ export default function AddRecipe() {
       body: formData, 
     });
     // const data = await  response.json();
-    console.log(response);
+    // console.log(response);
     // Update message based on response status
+    if (response.status !== 201) {
+      setMessage('Failed to add recipe!')
+    };
     // Open collapsible Alert
+    setOpen(true);
     // Set loading to false
     setLoading(false);
   };
