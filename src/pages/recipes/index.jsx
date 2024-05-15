@@ -54,7 +54,7 @@ useEffect(getRecipes, [keyword]);
                             <CardMedia
                                 component="img"
                                 height="140"
-                                image={`${process.env.REACT_APP_RECIPE_API_URL}/images/${recipe.image}`}
+                                image={`https://savefiles.org/${recipe.image}?shareable_link=218`}
                                 alt={recipe.title}
                             />
                             <CardContent sx={{height:'100%'}}>
