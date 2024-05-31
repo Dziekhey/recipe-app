@@ -1,5 +1,4 @@
 import Recipes from "./pages/recipes";
-import Navbar from "./component/navbar";
 import Recipe from "./pages/recipe";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import AddRecipe from "./pages/add-recipe";

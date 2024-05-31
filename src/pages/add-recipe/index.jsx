@@ -4,7 +4,6 @@ import { Close } from "@mui/icons-material";
 import TextField from "@mui/material/TextField";
 import MenuItem from "@mui/material/MenuItem";
 import {
-  Container,
   IconButton,
   Collapse,
   Box,
@@ -20,10 +19,13 @@ const countries = [
   { value: "Australia", label: "Australia" },
 ];
 
+const Success = "New Recipe Added Successfully!"
+const Failed = "Failed to add recipe!"
+
 export default function AddRecipe() {
   const [loading, setLoading] = useState(false);
   const [open, setOpen] = useState(false);
-  const [message, setMessage] = useState("New Recipe Added Successfully!");
+  const [message, setMessage] = useState(Success);
 
   const addRecipe = async (event) => {
     // Set loading to true
@@ -44,7 +46,7 @@ export default function AddRecipe() {
     // console.log(response);
     // Update message based on response status
     if (response.status !== 201) {
-      setMessage("Failed to add recipe!");
+      setMessage(Failed);
     }
     // Open collapsible Alert
     setOpen(true);
@@ -142,6 +144,7 @@ export default function AddRecipe() {
                       <Close fontSize="inherit" />
                     </IconButton>
                   }
+                  severity={message === Failed ? 'error': 'success'}
                   sx={{ mb: 2 }}
                 >
                   {message}

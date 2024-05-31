@@ -22,7 +22,7 @@ export default function ButtonAppBar() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography to='/recipes' color='inherit' variant="h6" component={Link} sx={{ flexGrow: 1 }}>
+          <Typography to='/recipes' color='inherit' variant="h5" component={Link} sx={{ flexGrow: 1, textDecoration: 'none', fontWeight:'bold' }}>
             Recipe App
           </Typography>
           <Button to='/add-recipe' variant="contained" component={Link} color="success">Admin</Button>
@@ -31,5 +31,3 @@ export default function ButtonAppBar() {
     </Box>
   );
 }
-
-{/* <AppBar color="success" position="static"></AppBar> */}
